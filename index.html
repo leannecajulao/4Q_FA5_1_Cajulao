@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shape Generator</title>
+</head>
+<body>
+    <h1>GENERATE YOUR SHAPE</h1>
+    <button onclick="generateShape()">Generate Shape</button>
+    <div id="shapers"></div>
+
+    <script>
+        
+        function getValidNumber() {
+            let userInput;
+            while (isNaN(userInput)) {
+                userInput = prompt("Please enter a DIGIT ONLY:");
+            }
+            return parseInt(userInput);
+        }
+
+       
+        function generateShape() {
+            const number = getValidNumber();
+            document.getElementById('shapers').innerHTML = "Number inputted: " + number + "<br>";
+            
+           
+            if (number % 2 !== 0) {
+               
+                for (let i = number; i >= 1; i--) {
+                    let row = '';
+                    for (let j = 0; j < number; j++) {
+                        row += i + " ";
+                    }
+                    document.getElementById('shapers').innerHTML += row + "<br>";
+                }
+            } else {
+                
+                for (let i = number; i > 0; i--) {
+                    let row = '';
+                    for (let j = 0; j < i; j++) {
+                        row += i + " ";
+                    }
+                    document.getElementById('shapers').innerHTML += row + "<br>";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
